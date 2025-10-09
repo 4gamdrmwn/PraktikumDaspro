@@ -7,12 +7,12 @@ public class ifCetakKRSNoPresensi {
             System.out.println("================");
             System.out.println("Have the tuition fee been paid? (true/false)");
             boolean uktLunas = scanner.nextBoolean();
-            if (uktLunas) {
-                System.out.println("UKT Payment has been confirmed.");
-                System.out.println("KRS now can be printed and you can ask the academic advisor to sign it.");
-            }
-            else {
-                System.out.println("Registration rejected. Please pay UKT first.");
-            }
+            // Ternary operator: condition ? value_if_true : value_if_false
+            // If uktLunas is true, message will be the first string. If false, message will be the second string.
+            String message = uktLunas
+                ? "UKT Payment has been confirmed.\nKRS now can be printed and you can ask the academic advisor to sign it."
+                : "Registration rejected. Please pay UKT first.";
+            System.out.println(message);
+
     }
 }
