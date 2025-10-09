@@ -11,7 +11,7 @@ public class ifCetakKRSNoPresensi {
                 System.out.println("UKT Payment has been confirmed.");
                 System.out.println("KRS now can be printed and you can ask the academic advisor to sign it.");
             } else {
-                System.out.println("UKT Payment not confirmed. Please pay the tuition fee first.");
+                System.out.println("Registration rejected. Please pay UKT first.");
             }
     }
 }
