@@ -30,18 +30,28 @@ public class UTSNilaizzz {
     System.out.print("Nilai Tugas : ");
     double tugas2 = input.nextDouble();
 
+        // --- Mata Kuliah 3: Matematika ---
+    System.out.println("\n--- Mata Kuliah 3: Matematika ---");
+    System.out.print("Nilai UTS   : ");
+    double uts3 = input.nextDouble();
+    System.out.print("Nilai UAS   : ");
+    double uas3 = input.nextDouble();
+    System.out.print("Nilai Tugas : ");
+    double tugas3 = input.nextDouble();
+
     input.close();
 
     // --- CALCULATIONS ---
-    // Final scores are calculated with weights: 30% UTS, 40% UAS, 30% Tugas
+    // Pembobotan : 30% UTS, 40% UAS, 30% Tugas
     double nilaiAkhir1 = (0.30 * uts1) + (0.40 * uas1) + (0.30 * tugas1);
     double nilaiAkhir2 = (0.30 * uts2) + (0.40 * uas2) + (0.30 * tugas2);
+    double nilaiAkhir3 = (0.30 * uts3) + (0.40 * uas3) + (0.30 * tugas3);
 
-    // Get letter grade for course 1
+    // nilai untuk matkul 1
     String nilaiHuruf1;
-    if (nilaiAkhir1 >= 80 && nilaiAkhir1 <= 100) {
+    if (nilaiAkhir1 >= 81 && nilaiAkhir1 <= 100) {
       nilaiHuruf1 = "A";
-    } else if (nilaiAkhir1 >= 73 && nilaiAkhir1 < 80) {
+    } else if (nilaiAkhir1 >= 73 && nilaiAkhir1 < 81) {
       nilaiHuruf1 = "B+";
     } else if (nilaiAkhir1 >= 65 && nilaiAkhir1 < 73) {
       nilaiHuruf1 = "B";
@@ -55,12 +65,12 @@ public class UTSNilaizzz {
       nilaiHuruf1 = "E";
     }
 
-    // Get letter grade for course 2
+    // nilai untuk matkul 2
     String nilaiHuruf2;
 
-    if (nilaiAkhir2 >= 80 && nilaiAkhir2 <= 100)
+    if (nilaiAkhir2 >= 81 && nilaiAkhir2 <= 100)
       nilaiHuruf2 = "A";
-    else if (nilaiAkhir2 >= 73 && nilaiAkhir2 < 80) {
+    else if (nilaiAkhir2 >= 73 && nilaiAkhir2 < 81) {
       nilaiHuruf2 = "B+";
     } else if (nilaiAkhir2 >= 65 && nilaiAkhir2 < 73) {
       nilaiHuruf2 = "B";
@@ -74,7 +84,26 @@ public class UTSNilaizzz {
       nilaiHuruf2 = "E";
     }
 
-    // Get passing status for course 1
+        // nilai untuk matkul 2
+    String nilaiHuruf3;
+
+    if (nilaiAkhir3 >= 81 && nilaiAkhir3 <= 100)
+      nilaiHuruf3 = "A";
+    else if (nilaiAkhir3 >= 73 && nilaiAkhir3 < 81) {
+      nilaiHuruf3 = "B+";
+    } else if (nilaiAkhir3 >= 65 && nilaiAkhir3 < 73) {
+      nilaiHuruf3 = "B";
+    } else if (nilaiAkhir3 >= 60 && nilaiAkhir3 < 65) {
+      nilaiHuruf3 = "C+";
+    } else if (nilaiAkhir3 >= 50 && nilaiAkhir3 < 60) {
+      nilaiHuruf3 = "C";
+    } else if (nilaiAkhir3 >= 39 && nilaiAkhir3 < 50) {
+      nilaiHuruf3 = "D";
+    } else {
+      nilaiHuruf3 = "E";
+    }
+
+    // passing grade matkul 1
     String status1;
     if (nilaiAkhir1 < 60) {
       status1 = "TIDAK LULUS";
@@ -82,7 +111,7 @@ public class UTSNilaizzz {
       status1 = "LULUS";
     }
 
-    // Get passing status for course 2
+    // passing grade matkul 2
     String status2;
     if (nilaiAkhir2 < 60) {
       status2 = "TIDAK LULUS";
@@ -90,11 +119,19 @@ public class UTSNilaizzz {
       status2 = "LULUS";
     }
 
-    double rataRataNilaiAkhir = (nilaiAkhir1 + nilaiAkhir2) / 2;
+        // passing grade matkul 3
+    String status3;
+    if (nilaiAkhir3 < 60) {
+      status3 = "TIDAK LULUS";
+    } else {
+      status3 = "LULUS";
+    }
 
-    // Determine semester status
+    double rataRataNilaiAkhir = (nilaiAkhir1 + nilaiAkhir2 + nilaiAkhir3) / 3;
+
+    // status semester
     String statusSemester;
-    if (status1.equalsIgnoreCase("LULUS") && status2.equalsIgnoreCase("LULUS")) {
+    if (status1.equalsIgnoreCase("LULUS") && status2.equalsIgnoreCase("LULUS") && status3.equalsIgnoreCase("LULUS")) {
       if (rataRataNilaiAkhir >= 70) {
         statusSemester = "LULUS";
       } else {
@@ -124,6 +161,10 @@ public class UTSNilaizzz {
     // Print results for course 2
     System.out.format("%-25s %-10.0f %-10.0f %-10.0f %-15.2f %-15s %-10s\n",
         "Struktur Data", uts2, uas2, tugas2, nilaiAkhir2, nilaiHuruf2, status2);
+
+   // Print results for course 3
+    System.out.format("%-25s %-10.0f %-10.0f %-10.0f %-15.2f %-15s %-10s\n",
+        "Matematika", uts3, uas3, tugas3, nilaiAkhir3, nilaiHuruf3, status3);
 
     System.out.println(
         "\n-------------------------------------------------------------------------------------------------------");
