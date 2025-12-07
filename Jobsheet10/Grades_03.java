@@ -1,3 +1,4 @@
+package Jobsheet10;
 public class Grades_03 {
     static int[][] grades = new int[5][7];
     static String[] students = new String[5];
